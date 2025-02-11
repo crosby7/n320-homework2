@@ -1,6 +1,6 @@
 {
   "name": "n320-create-cam-app",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "This module uses readline to ask the name of a project to make a directory from. Then, the module creates a scaffold of directories and files for the project.",
   "bin": {
     "create-cam-app": "./index.js"

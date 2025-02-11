@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const path = require("path");
 const fs = require("fs");
 const readline = require("readline");
@@ -6,6 +8,20 @@ const app = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
+
+function includeReadme() {
+  app.question("Include README.md? (yes/no): ", function (answer) {
+    const cleanedAnswer = answer.trim().toLowerCase();
+    if (cleanedAnswer === "yes" || !answer) {
+      fs.writeFileSync(readmeFile, `## ${projectName}`);
+      return;
+    } else if (cleanedAnswer === "no") {
+      return;
+    } else {
+      includeReadme();
+    }
+  });
+}
 
 app.question("Name of project: ", function (projectName) {
   const projectDirectory = path.resolve(process.cwd(), projectName);
@@ -24,7 +40,7 @@ app.question("Name of project: ", function (projectName) {
     fs.writeFileSync(functionsFile, `console.log("functions");`);
   }
 
-  fs.writeFileSync(readmeFile, `## ${projectName}`);
+  includeReadme();
 
   app.close();
 });

@@ -12,6 +12,17 @@ This module uses readline to ask the name of a project to make a directory from.
 
 #### To utilize module
 
+1. Navigate to the directory you'd like to create a project within (e.g. N320Lectures)
+2. Paste the following line into your terminal (ensure your working directory is correct)
+
+```
+npm i n320-create-cam-app
+```
+
+3. Now that the package is installed, run the following command to initialize your project scaffold
+
+```
+npm create-cam-app
 ---
 
 ## Key Takeaways
@@ -40,7 +51,10 @@ process.env contains environment variables available to the current process. Com
 - Can be updated manually in package.json or automatically with CLI
 
 ```
+
 npm version patch
+
 ```
 
 - Bin (exectuables provided)
+```
