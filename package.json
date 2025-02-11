@@ -1,0 +1,23 @@
+{
+  "name": "n320-createCamApp",
+  "version": "1.0.0",
+  "description": "This module uses readline to ask the name of a project to make a directory from. Then, the module creates a scaffold of directories and files for the project.",
+  "bin": {
+    "createCamApp": "./index.js"
+  },
+  "files": ["index.js"],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crosby7/n320-homework2.git"
+  },
+  "author": "Cameron Crosby",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crosby7/n320-homework2/issues"
+  },
+  "homepage": "https://github.com/crosby7/n320-homework2#readme"
+}
