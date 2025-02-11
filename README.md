@@ -22,7 +22,23 @@ npm i n320-create-cam-app
 3. Now that the package is installed, run the following command to initialize your project scaffold
 
 ```
-npm create-cam-app
+npx n320-create-cam-app
+```
+
+4. You will be prompted to give a project name, which will become the name of the directory to initialize the project within
+
+   - This will create:
+     - Project directory (with your given project name)
+     - Index.js in project directory
+     - Functions directory
+     - Functions.js in functions directory
+
+5. You will be asked if you want to create a readme. The prompt will ask for a "yes" or "no"
+   - "Yes": Create readme
+   - "No": End readline session, do not create readme
+   - Other answer: repeat the prompt
+   - No answer: create the readme
+
 ---
 
 ## Key Takeaways
@@ -54,7 +70,4 @@ process.env contains environment variables available to the current process. Com
 
 npm version patch
 
-```
-
-- Bin (exectuables provided)
 ```

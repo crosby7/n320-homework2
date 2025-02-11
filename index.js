@@ -9,16 +9,15 @@ const app = readline.createInterface({
   output: process.stdout,
 });
 
-function includeReadme() {
+function includeReadme(callback) {
   app.question("Include README.md? (yes/no): ", function (answer) {
     const cleanedAnswer = answer.trim().toLowerCase();
     if (cleanedAnswer === "yes" || !answer) {
-      fs.writeFileSync(readmeFile, `## ${projectName}`);
-      return;
+      callback();
     } else if (cleanedAnswer === "no") {
-      return;
+      app.close();
     } else {
-      includeReadme();
+      includeReadme(callback);
     }
   });
 }
@@ -40,7 +39,8 @@ app.question("Name of project: ", function (projectName) {
     fs.writeFileSync(functionsFile, `console.log("functions");`);
   }
 
-  includeReadme();
-
-  app.close();
+  includeReadme(function () {
+    fs.writeFileSync(readmeFile, `# ${projectName}`);
+    app.close();
+  });
 });
