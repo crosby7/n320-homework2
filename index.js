@@ -25,18 +25,28 @@ function includeReadme(callback) {
 app.question("Name of project: ", function (projectName) {
   const projectDirectory = path.resolve(process.cwd(), projectName);
   const functionsDirectory = path.join(projectDirectory, "functions");
+  const libDirectory = path.join(__dirname, "lib");
+  const viewsDir = path.join(projectDirectory, "views");
+
   const readmeFile = path.join(projectDirectory, "README.md");
-  const indexFile = path.join(projectDirectory, "index.js");
-  const functionsFile = path.join(functionsDirectory, "functions.js");
+  const serverFile = path.join(projectDirectory, "server.js");
+  const functionsFile = path.join(functionsDirectory, "webfile.js");
+
+  const webfilePath = path.join(libDirectory, "webfile.js");
+  const serverPath = path.join(libDirectory, "server.js");
 
   if (!fs.existsSync(projectDirectory)) {
     fs.mkdirSync(projectDirectory);
-    fs.writeFileSync(indexFile, `console.log("Hello, ${projectName}");`);
+    fs.writeFileSync(serverFile, fs.readFileSync(serverPath));
   }
 
   if (!fs.existsSync(functionsDirectory)) {
     fs.mkdirSync(functionsDirectory);
-    fs.writeFileSync(functionsFile, `console.log("functions");`);
+    fs.writeFileSync(functionsFile, fs.readFileSync(webfilePath));
+  }
+
+  if (!fs.existsSync(viewsDir)) {
+    fs.mkdirSync(viewsDir);
   }
 
   includeReadme(function () {
